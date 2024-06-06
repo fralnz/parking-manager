@@ -1,4 +1,10 @@
-const arrow = ()=>{}
+import React from "react";
 
-const prova = ()=>{}
+const VerificaPagamento = ()=>{
+    return(
+        <>
+        </>
+    )
+}
 
+export default VerificaPagamento;
