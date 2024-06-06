@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Text, View } from "react-native"; //questa è la pagina principale !
 
 export default function Index() {
   return (
@@ -9,8 +9,8 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      
-      
+
+
     </View>
   );
 }
