@@ -8,5 +8,5 @@
 2. Da fare ogni volta che si vuole testare l'APP
 
    ```bash
-    npx expo start
+    npm start
    ```
