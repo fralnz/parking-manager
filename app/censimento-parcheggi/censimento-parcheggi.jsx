@@ -1,8 +1,8 @@
-import {Stack} from "expo-router";
 import React, {useEffect, useState} from "react";
 import {Text, FlatList, ActivityIndicator, StyleSheet} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
-import {Button, TextInput, View} from "react-native-web";
+import {Button, TextInput, View} from "react-native";
+import {router, Stack} from "expo-router";
 
 const API_SERVER_URL = "http://127.0.0.1:5000";
 
@@ -63,6 +63,7 @@ const CensimentoParcheggi = () => {
             <SafeAreaView>
                 <View style={style.container}>
                     <View>
+                        <Button title={"TestMappa"} onPress={() => router.push("/censimento-parcheggi/TestMap" )}/>
                         {!loading ? (
                             <FlatList
                                 style={style.list}

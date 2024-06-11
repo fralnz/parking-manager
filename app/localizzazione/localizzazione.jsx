@@ -15,24 +15,20 @@ function App() {
 
     async function getCountries() {
         const { data, error } = await supabase
-            .from('Test')
+            .from('films')
             .insert([
-                { gruppo: 'gruppoProva' },
+                { nome: 'provaProva' },
             ])
             .select()
-        console.log(error)
+        console.error("Error",error)
         console.log("TCL: getCountries -> ", data);
-        setCountries(data?.gruppo);
-
     }
 
     return (
         <div>
             <h1>Prova</h1>
             <ul>
-                {countries?.map((country) => (
-                    <li key={country.name}>{country.name}</li>
-                ))}
+              {countries || "Value default "}
             </ul>
 
         </div>
