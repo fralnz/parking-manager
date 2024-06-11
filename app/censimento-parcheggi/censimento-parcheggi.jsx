@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Text, FlatList, ActivityIndicator, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, TextInput, View } from "react-native";
-import { router, Stack } from "expo-router";
+import { Stack } from "expo-router";
+import Mappa from "./mappa/Mappa";
 
 const API_SERVER_URL = "http://127.0.0.1:5000";
 
@@ -59,7 +60,8 @@ const CensimentoParcheggi = () => {
     return (
         <>
             <Stack.Screen options={{ headerTitle: "Gestione Parcheggio" }} />
-            <SafeAreaView>
+            <SafeAreaView style={style.test}>
+                <Mappa />
                 <View style={style.container}>
                     <View>
                         {!loading ? (
@@ -100,5 +102,6 @@ const style = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
     },
+    test: { height: "100%", width: "100%" },
 });
 export default CensimentoParcheggi;
