@@ -2,7 +2,7 @@ import {Stack} from "expo-router";
 import React, {useEffect, useState} from "react";
 import {Text, FlatList, ActivityIndicator, StyleSheet} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
-import {Button, TextInput, View} from "react-native-web";
+import {Button, TextInput, View} from "react-native";
 
 const API_SERVER_URL = "http://127.0.0.1:5000";
 
