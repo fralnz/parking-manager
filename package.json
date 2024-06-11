@@ -29,6 +29,7 @@
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.5",
     "expo-web-browser": "~13.0.3",
+    "native-base": "^2.15.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.1",
@@ -37,6 +38,8 @@
     "react-native-reanimated": "~3.10.1",
     "react-native-safe-area-context": "4.10.1",
     "react-native-screens": "3.31.1",
+    "react-native-svg": "^15.3.0",
+    "react-native-vector-icons": "^10.1.0",
     "react-native-web": "~0.19.10",
     "supabase": "^1.176.2"
   },
