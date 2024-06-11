@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',
     },
     text: {
-
         color: "white"
     }
 })  
