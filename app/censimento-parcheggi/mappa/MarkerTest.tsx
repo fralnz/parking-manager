@@ -3,11 +3,6 @@ import { Platform } from "react-native";
 
 let Marker;
 
-if (Platform.OS !== 'web') {
-    Marker = require("react-native-maps").Marker;
-}
-
-
 const MarkerTest = () => {
     if (Platform.OS === 'web') {
         return ( //marker su web (non funziona ancora)
