@@ -8,7 +8,7 @@ const Mappa = () => {
         <View style={styles.container}>
             <MapView
                 provider="google"
-                googleMapsApiKey="AIzaSyA2mVmsvJOh447B9FKNRc6HPaGtn3Sbors"
+                googleMapsApiKey={process.env.GOOGLEMAPS_APIKEY}
                 style={styles.map}
                 initialRegion={{
                     latitude: 37.78825,
