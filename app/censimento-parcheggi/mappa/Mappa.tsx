@@ -1,9 +1,8 @@
 import React from "react";
 import MapView from "@teovilla/react-native-web-maps";
-import { StyleSheet, View } from "react-native";
-import MarkerTest from "@/app/censimento-parcheggi/mappa/MarkerTest"; // Assicurati che il percorso sia corretto
+import {StyleSheet, View} from "react-native";
 
-const Mappa = () => {
+const Mappa = ({children}) => {
     return (
         <View style={styles.container}>
             <MapView
@@ -15,10 +14,10 @@ const Mappa = () => {
                     longitude: -122.4324,
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
-                }}
-            >
-                <MarkerTest />
+                }}>
+                {children}
             </MapView>
+
         </View>
     );
 };

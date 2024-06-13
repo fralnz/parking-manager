@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, TextInput, View } from "react-native";
 import { Stack } from "expo-router";
 import Mappa from "./mappa/Mappa";
+import CustomMarker from "./mappa/Marker/CustomMarker";
 
 const API_SERVER_URL = "http://127.0.0.1:5000";
 
@@ -61,7 +62,12 @@ const CensimentoParcheggi = () => {
         <>
             <Stack.Screen options={{ headerTitle: "Gestione Parcheggio" }} />
             <SafeAreaView style={style.test}>
-                <Mappa />
+                <Mappa >
+                    <CustomMarker
+                    latitude={45.4692}
+                    longitude={9.1900}
+                    />
+                </Mappa>
                 <View style={style.container}>
                     <View>
                         {!loading ? (

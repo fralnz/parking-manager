@@ -1,9 +1,8 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import MarkerTest from "@/app/censimento-parcheggi/mappa/MarkerTest";
+import {StyleSheet, View} from "react-native";
+import MapView, {PROVIDER_GOOGLE} from "react-native-maps";
 
-const Mappa = () => {
+const Mappa = ({children}) => {
     return (
         <View style={styles.container}>
             <MapView
@@ -16,7 +15,7 @@ const Mappa = () => {
                     longitudeDelta: 0.0421,
                 }}
             >
-                <MarkerTest />
+                {children}
             </MapView>
         </View>
     );
@@ -25,11 +24,14 @@ const Mappa = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
+    }
+    ,
     map: {
         width: "100%",
-        height: "100%",
-    },
+        height:
+            "100%",
+    }
+    ,
 });
 
 export default Mappa;
