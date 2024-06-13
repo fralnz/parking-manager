@@ -10,11 +10,12 @@ const Mappa = ({children}) => {
                 googleMapsApiKey={process.env.GOOGLEMAPS_APIKEY}
                 style={styles.map}
                 initialRegion={{
-                    latitude: 37.78825,
-                    longitude: -122.4324,
+                    latitude: 45.4642,
+                    longitude: 9.1900,
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
-                }}>
+                }}
+            >
                 {children}
             </MapView>
 
