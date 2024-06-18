@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
+import {Button, Text, View} from "react-native";
+import {router} from "expo-router";
 
 
 const supabaseUrl = "https://yuyyujadubndgfpxauug.supabase.co";
@@ -10,7 +12,7 @@ function App() {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
-        getCountries();
+       // getCountries();
     }, []);
 
     async function getCountries() {
@@ -25,13 +27,13 @@ function App() {
     }
 
     return (
-        <div>
-            <h1>Prova</h1>
-            <ul>
-              {countries || "Value default "}
-            </ul>
-
-        </div>
+        <View>
+            <Text>Prova</Text>
+             
+            <View style={{gap:16 }}>
+                  <Button title={"storico"} onPress={() => router.push("/localizzazione/storico-parcheggi" )}/>
+              </View>
+        </View>
 
     );
 }
