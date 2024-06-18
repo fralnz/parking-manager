@@ -1,10 +1,12 @@
+import { router } from "expo-router"
+import { Button , View} from "react-native-web"
 export default function Test(){
     return(
-        <div>
-        Lol
-        <h1>Lmao</h1>
-        <h2>ok</h2>
-        </div>
+        <View>
+
+      
+        <Button onPress={() => router.push("./segnalazioni-da-utente")} title={'SENDTO NEXT PAGE'}/>
+        </View>
     )
 
 }
