@@ -34,7 +34,10 @@ const BottomNavigation = () => (
   </View>
 );
 
-const App = () => {
+const  App = ()=> <View>App rimuovere</View>;
+export default App;
+
+export const StoricoParcheggio = () => {
   const [sortType, setSortType] = useState('none'); // State to manage sort type
   const [totalExpenses, setTotalExpenses] = useState(0); // State to manage total expenses
   const [data, setData] = useState(parkingData); // State to manage parking data
@@ -101,7 +104,6 @@ const App = () => {
           <Text style={styles.buttonText}>STATISTICHE</Text>
         </TouchableOpacity>
       </View>
-      <BottomNavigation />
     </View>
     </>
   );
@@ -176,14 +178,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
   },
-  bottomNavigation: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 16,
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    marginTop: 8,
-  },
   totSpesa: {
     display:'flex',
     flexDirection:'row',
@@ -201,4 +195,3 @@ const styles = StyleSheet.create({
 
 });
 
-export default App;
