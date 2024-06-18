@@ -6,10 +6,8 @@ const Cronologia = () => {
     return(
         <>
         <View>
+            <h1>Notifiche</h1>
         <div>
-            <h1>Introduzione a React</h1>
-            <p>Iniziamo il corso</p>
-            <button>Bottone</button>
             <Notifica title="Primo titolo" data="01-02-23" descrizione="ciao ciao ciao ciao"/>
             <Notifica />
             <Notifica />
@@ -23,6 +21,7 @@ const Notifica = ({title = "Titolo di default", data = "Data di default", descri
     return(
         <>
         <View>
+        <hr/>
         <div className="notifica">
                 <h3 className="data">{title}</h3>
             <div className="data">Data: {data}</div>
