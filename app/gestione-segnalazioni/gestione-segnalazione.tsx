@@ -21,12 +21,13 @@ export default function Test(){
 
               <View style={{gap:16 }}>
                 <Button onPress={() => router.push("./segnali-da-utente")} title={'Segnalazioni Utente'}/>
-                <Button title={"Notifiche Del Sistema"}/>
+                <Button onPress={() => router.push("./cronologia-notifiche")} title={"Notifiche Del Sistema"}/>
               </View>
           </View>
       </>
     
         
+
     )
 
 }

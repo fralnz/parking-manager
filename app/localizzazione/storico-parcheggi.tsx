@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Children } from 'react';
 import { View, Text, TextInput, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
@@ -36,7 +36,6 @@ const BottomNavigation = () => (
 
 const App = () => {
   const [sortType, setSortType] = useState('none'); // State to manage sort type
-  const [showFavorites, setShowFavorites] = useState(false); // State to manage favorites filter
   const [totalExpenses, setTotalExpenses] = useState(0); // State to manage total expenses
   const [data, setData] = useState(parkingData); // State to manage parking data
 
@@ -69,8 +68,6 @@ const App = () => {
     setData(updatedData);
   };
 
-  const filteredData = showFavorites ? data.filter(item => item.favorite) : data;
-
   return (
     <>
     <View style={styles.container}>
@@ -91,10 +88,7 @@ const App = () => {
           <Icon name="exchange" size={20} color="#000" />
           <Text>Invert List</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => setShowFavorites(!showFavorites)} style={styles.filterButton}>
-          <Icon name="star" size={20} color={showFavorites ? "#FFD700" : "#000"} />
-          <Text>Favorites</Text>
-        </TouchableOpacity>
+    
       </View>
       <FlatList
         data={sortData(sortType)}
@@ -102,7 +96,7 @@ const App = () => {
         renderItem={({ item }) => <ParkingCard data={item} toggleFavorite={toggleFavorite} />}
       />
       <View style={styles.footer}>
-        <Text>Totale Spese Parcheggi: €{totalExpenses.toFixed(2)}</Text>
+        <View style={styles.totSpesa}><Text style={styles.t}>Totale Spese Parcheggi:</Text><Text style={styles.p}>€{totalExpenses.toFixed(2)}</Text></View>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>STATISTICHE</Text>
         </TouchableOpacity>
@@ -123,7 +117,9 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#FFBF00',
+    textAlign: 'center'
+
   },
   searchContainer: {
     flexDirection: 'row',
@@ -168,17 +164,14 @@ const styles = StyleSheet.create({
     marginLeft: 16,
   },
   footer: {
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 16,
     alignItems: 'center',
-    marginVertical: 8,
   },
   button: {
     backgroundColor: '#000',
     borderRadius: 8,
-    padding: 8,
+    padding: 10,
     marginTop: 8,
+    
   },
   buttonText: {
     color: '#fff',
@@ -191,6 +184,21 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginTop: 8,
   },
+  totSpesa: {
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-between',
+    width:'100%',
+  },
+  t:{
+    color:'white'
+
+  },
+  p:{
+    color:'white'
+
+  }
+
 });
 
 export default App;
