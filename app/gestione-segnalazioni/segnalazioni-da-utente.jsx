@@ -5,7 +5,7 @@ export default function MenuNotificaDaUtente(){
     return(
         <View>
         <Text>Che cosa vuoi segnalare?</Text>
-        <Pressable onPress={console.log("Segnalazione fatta! Grazie per il contributo!")}>
+        <Pressable onPress={alert("Segnalazione fatta! Grazie per il contributo!")}>
             <Text>Parcheggio Ostruito</Text>
         </Pressable>
         
