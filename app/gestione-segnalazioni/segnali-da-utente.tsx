@@ -1,5 +1,6 @@
 import { View, Text, Button, Pressable } from "react-native-web";
 import { router } from "expo-router"
+import React from "react";
 
 export default function MenuNotificaDaUtente(){
     return(
