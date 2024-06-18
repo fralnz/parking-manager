@@ -1,23 +1,16 @@
-import { View, Text, Button } from "react-native-web";
+import { View, Text, Button, Pressable } from "react-native-web";
+import { router } from "expo-router"
 
 export default function MenuNotificaDaUtente(){
     return(
         <View>
         <Text>Che cosa vuoi segnalare?</Text>
-
-        {/*
-        Elenca lista di opzioni 
-        */}
+        <Pressable onPress={console.log("Segnalazione fatta! Grazie per il contributo!")}>
+            <Text>Parcheggio Ostruito</Text>
+        </Pressable>
         
-        <ul>
-            <li onClick="Segnalazione inviata! Grazie per il contributo!">Esempio</li>
-            <li onClick="Inserire feedback:">Altro</li>
-        </ul>
-
-        <Button onClick>
-            Indietro
-        </Button>
-
+        <Text onPress="Inserire feedback:">Altro</Text>
+        
         </View>
     )
 
