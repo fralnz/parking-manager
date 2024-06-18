@@ -9,6 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
+    "postinstall": "node react-native-map-web-fix.js",
     "lint": "expo lint"
   },
   "jest": {
@@ -17,6 +18,8 @@
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
     "@react-navigation/native": "^6.0.2",
+    "@supabase/supabase-js": "^2.43.4",
+    "@teovilla/react-native-web-maps": "^0.9.5",
     "expo": "~51.0.10",
     "expo-constants": "~16.0.2",
     "expo-font": "~12.0.6",
@@ -26,19 +29,26 @@
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.5",
     "expo-web-browser": "~13.0.3",
+    "native-base": "^2.15.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.1",
     "react-native-gesture-handler": "~2.16.1",
+    "react-native-maps": "^1.15.6",
     "react-native-reanimated": "~3.10.1",
     "react-native-safe-area-context": "4.10.1",
     "react-native-screens": "3.31.1",
-    "react-native-web": "~0.19.10"
+    "react-native-status-bar-height": "^2.6.0",
+    "react-native-svg": "^15.3.0",
+    "react-native-vector-icons": "^10.1.0",
+    "react-native-web": "~0.19.10",
+    "supabase": "^1.176.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.2.45",
+    "@types/react-dom": "^18.3.0",
     "@types/react-test-renderer": "^18.0.7",
     "jest": "^29.2.1",
     "jest-expo": "~51.0.1",
