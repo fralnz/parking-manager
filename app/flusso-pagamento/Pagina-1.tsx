@@ -1,26 +1,47 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {TextInput, Text, StyleSheet, View, TouchableOpacity, Button} from "react-native";
 import {Dropdown, styles} from "@/app/flusso-pagamento/Components/ListaTarghe";
 import {router} from "expo-router";
+import getTarga from "@/app/flusso-pagamento/Query/Query_TargheUtente";
 
 
-const firstPage = () => {
+const useTarghe = (id_utente) => {
+    const [loading, setLoading] = useState(true);
+    const [targhe, setTarghe] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            const res = await getTarga(id_utente)
+            // @ts-ignore
+            setTarghe(res)
+        })();
+    }, []);
+
+    return {loading, targhe};
+}
+
+const FirstPage = () => {
     const handleSelect = (option: string) => {
     };
+
+    const {loading, targhe} = useTarghe(1)
+
     return (
         <View style={styless.container}>
-            <Text style={styless.text}>Seleziona la targa dell'auto parcheggiata: </Text>
-            <Dropdown options={['AA 000 AA', 'AA 000 AB', 'AA 000 AC']} onSelect={handleSelect}/>
-            <Text style={[styless.text]}>Inserisci una nuova targa: </Text>
-            <TextInput style={[styles.dropdownButton, styles.dropdownButtonText, styless.textCenter]}
-                       placeholder="AA 000 AA"/>
-            <TouchableOpacity style={styless.nextBtn} onPress={() => router.push("/flusso-pagamento/Pagina-2" )}>
-                <Text style={{color: "white"}} >Prosegui</Text>
+
+            <Text style={styless.label}>Seleziona la targa dell'auto parcheggiata: </Text>
+            <Dropdown options={targhe} onSelect={handleSelect}/>
+
+            <Text style={[styless.label]}>Inserisci una nuova targa: </Text>
+            <TextInput style={styless.textArea} placeholder="AA 000 AA"/>
+
+            <TouchableOpacity style={styless.nextBtn} onPress={() => router.push("/flusso-pagamento/Pagina-2")}>
+                <Text style={{color: "white"}}>Prosegui</Text>
             </TouchableOpacity>
         </View>
     )
 }
-export default firstPage
+export default FirstPage
 
 const styless = StyleSheet.create({
     container: {
@@ -28,26 +49,26 @@ const styless = StyleSheet.create({
         alignItems: 'center',
         gap: 16,
     },
-    input: {
-        borderWidth: 1,
-        borderColor: "grey",
-        color: "black",
-        borderRadius: 6
+    label: {
+        fontSize: 18,
+        color: 'blue',
+        marginBottom: 10,
+        fontWeight: "bold",
     },
-    text: {
-        fontSize: 32,
-        color: "black"
+    textArea: {
+        width: '40%',
+        height: 50,
+        borderColor: '#ccc',
+        borderWidth: 1,
+        borderRadius: 5,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        backgroundColor: '#f0f0f0',
     },
     nextBtn: {
         top: 100,
         padding: 12,
-        backgroundColor: '#155e85',
-        borderRadius: 6
-    },
-    textCenter: {
-        textAlign: "center",
-        fontSize: 20,
-        padding: 8,
-
+        backgroundColor: 'blue', //#155e85
+        borderRadius: 6,
     }
 })
