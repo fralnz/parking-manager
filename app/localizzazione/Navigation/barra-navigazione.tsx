@@ -1,8 +1,8 @@
 import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MaterialIcons } from "@expo/vector-icons"; // Importa le icone
+import { MaterialIcons } from "@expo/vector-icons";
 import { View, Text, Button } from "react-native";
-import { router } from "expo-router";
+import { StoricoParcheggio } from "../storico-parcheggi";
 
 function ProfileScreen() {
   return (
@@ -20,10 +20,28 @@ function ParkingScreen() {
   );
 }
 
-function SettingScreen() {
+function SettingScreen({ navigation }) {
+  console.log(navigation);
+  const [showHistory, setShowHistory] = React.useState(false);
+
+  const toggleHistory = () => {
+    setShowHistory(!showHistory);
+  };
+
+  React.useEffect(() => {
+    if (showHistory) {
+      // Esegui azioni quando lo storico è mostrato
+      console.log("Storico visualizzato");
+    }
+  }, [showHistory]);
+
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Button title={"storico"} onPress={() => router.push("/localizzazione/storico-parcheggi")} />
+      {showHistory ? (
+        <StoricoParcheggio />
+      ) : (
+        <Button title={"Mostra Storico"} onPress={toggleHistory} />
+      )}
     </View>
   );
 }
@@ -31,35 +49,69 @@ function SettingScreen() {
 const Tab = createBottomTabNavigator();
 
 export default function BarBottomNavigation() {
+  
+  const headerLeft = () => {
+    return (
+      <MaterialIcons
+        name="reply"
+        size={24}
+        color="black"
+        style={{ marginLeft: 10 }}
+        onPress={() => alert("Menu pressed")}
+      />
+    );
+  };
+
   return (
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
 
-            if (route.name === "Profile") {
-              iconName = "person";
-            } else if (route.name === "Parking") {
-              iconName = "local-parking";
-            } else if (route.name === "Setting") {
-              iconName = "menu";
-            }
+          if (route.name === "Profile") {
+            iconName = "person";
+          } else if (route.name === "Parking") {
+            iconName = "local-parking";
+          } else if (route.name === "Setting") {
+            iconName = "menu";
+          }
 
-            // Cambia colore dell'icona se è attiva
-            color = focused ? "blue" : "black";
+          // Cambia colore dell'icona se è attiva
+          color = focused ? "blue" : "black";
 
-            return <MaterialIcons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: "blue",
-          tabBarInactiveTintColor: "black",
-          tabBarStyle: {
-            backgroundColor: "white"
-          },
-        })}
-      >
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-        <Tab.Screen name="Parking" component={ParkingScreen} />
-        <Tab.Screen name="Setting" component={SettingScreen} />
-      </Tab.Navigator>
+          return <MaterialIcons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: "blue",
+        tabBarInactiveTintColor: "black",
+        tabBarStyle: {
+          backgroundColor: "white",
+        },
+      })}
+    >
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          headerShown: true, // Mostra l'intestazione per questa schermata
+          headerLeft: headerLeft,
+        }}
+      />
+      <Tab.Screen
+        name="Parking"
+        component={ParkingScreen}
+        options={{
+          headerShown: true, // Mostra l'intestazione per questa schermata
+          headerLeft: headerLeft,
+        }}
+      />
+      <Tab.Screen
+        name="Setting"
+        component={SettingScreen}
+        options={{
+          headerShown: true, // Mostra l'intestazione per questa schermata
+          headerLeft: headerLeft,
+        }}
+      />
+    </Tab.Navigator>
   );
 }
