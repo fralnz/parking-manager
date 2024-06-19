@@ -1,12 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import getTarga from "@/app/flusso-pagamento/Query/Query_TargheUtente";
-
-// interface DropdownProps {
-//     options: [];
-//     onSelect: (option: string) => void;
-// }
-
 
 const Dropdown = ({options, onSelect}) => {
     const [isOpen, setIsOpen] = useState(false);

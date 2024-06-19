@@ -23,7 +23,6 @@ const useTarghe = (id_utente) => {
 const FirstPage = () => {
     const handleSelect = (option: string) => {
     };
-
     const {loading, targhe} = useTarghe(1)
 
     return (
