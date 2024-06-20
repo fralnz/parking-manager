@@ -1,3 +1,5 @@
+import { createClient } from "@supabase/supabase-js";
+
 export default function Test(){
     return(
         <div>
@@ -10,9 +12,9 @@ export default function Test(){
 }
 
 // URL del tuo progetto Supabase e la chiave pubblica API
-const supabaseUrl = 'https://yuyyujadubndgfpxauug.supabase.co';
+/* const supabaseUrl = 'https://yuyyujadubndgfpxauug.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl1eXl1amFkdWJuZGdmcHhhdXVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTc2NjA4MzUsImV4cCI6MjAzMzIzNjgzNX0.V8bBPKuA3fXB10LcA1inEJRDAv96y-ePQaNdpaKO0yo';
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+const supabaseClient = createClient(supabaseUrl, supabaseKey); */
 
 // Verifica che Supabase sia disponibile come global
 /*
@@ -24,7 +26,7 @@ if (typeof supabase !== 'undefined') {
 */
 
 // Esempio di funzione per ottenere dati da una tabella
-async function getData() {     
+/* async function getData() {     
     let { data, error } = await supabaseClient
         .from('Studenti')
         .select('Cognome');
@@ -35,10 +37,10 @@ async function getData() {
         // Mostra i dati nella pagina web
         document.getElementById('content').innerHTML = JSON.stringify(data, null, 2);
     }
-}
+} */
 
 // Chiamare la funzione per ottenere i dati
-getData();
+/* getData();
 
 function invia() {
  
@@ -55,4 +57,4 @@ function invia() {
         .select()
         window.location.reload();
     }
-}
+} */
