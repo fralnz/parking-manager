@@ -9,10 +9,11 @@ import {
     StyleSheet, Button, ImageBackground
 } from 'react-native';
 import {router} from "expo-router";
+// @ts-ignore
+import backgroundImage from './assets/BG_car.jpg';
 
 
 const ButtonPagamento = ({tariffa = 10}) => {
-    // const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
 
     const [parkingTime, setParkingTime] = useState('');
     const [totalToPay, setTotalToPay] = useState(0);
@@ -30,7 +31,7 @@ const ButtonPagamento = ({tariffa = 10}) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            {/*<ImageBackground source={image} resizeMode="cover" style={{width:'100%', height:'100%'}}>*/}
+            <ImageBackground source={backgroundImage} resizeMode="cover" style={{width: '100%', height: '100%'}}>
                 <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
                     <View style={styles.steps}>
                         <Text style={styles.stepComplete}
@@ -43,7 +44,7 @@ const ButtonPagamento = ({tariffa = 10}) => {
                         <Text style={styles.label}>Impostare il tempo della sosta:</Text>
                         <TextInput
                             style={styles.textArea}
-                            placeholder="Inserisci il tempo...(In minuti)"
+                            placeholder="How many minutes do you stay away?"
                             keyboardType="numeric"
                             multiline={false}
                             onChangeText={setParkingTime}
@@ -58,13 +59,13 @@ const ButtonPagamento = ({tariffa = 10}) => {
                         </View>
                     </View>
                     <View style={styles.section}>
-                        <Text style={styles.label}>Prosegui</Text>
                         <TouchableOpacity style={styles.nextButton}>
-                            <Button title={"-->"} onPress={() => router.push("/flusso-pagamento/Pagina-3")}/>
+                            <Button title={"Vai al pagamento"}
+                                    onPress={() => router.push("/flusso-pagamento/Pagina-3")}/>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
-            {/*</ImageBackground>*/}
+            </ImageBackground>
         </SafeAreaView>
     );
 };
@@ -100,32 +101,34 @@ const styles = StyleSheet.create({
     },
     label: {
         fontSize: 18,
-        color: 'blue',
+        color: '#333',
         marginBottom: 10,
         fontWeight: "bold",
     },
     textArea: {
-        width: '60%',
+        width: '30%',
         height: 50,
-        borderColor: '#ccc',
+        borderColor: '#0000fc',
         borderWidth: 1,
-        borderRadius: 5,
+        borderRadius: 10,
         paddingHorizontal: 10,
         paddingVertical: 5,
         backgroundColor: '#f0f0f0',
     },
     resultBox: {
-        width: '60%',
+        width: '30%',
         height: 50,
-        borderColor: '#ccc',
+        borderColor: '#0000fa',
         borderWidth: 1,
-        borderRadius: 5,
+        borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#f0f0f0',
     },
     resultText: {
         fontSize: 18,
+        color: '#002aff',
+        fontWeight: "bold",
     },
     linkText: {
         fontSize: 18,
@@ -133,8 +136,9 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     nextButton: {
-        width: 50,
-        height: 50,
+        paddingTop: 30,
+        width: 80,
+        height: 80,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 20,
