@@ -37,11 +37,18 @@ function SettingScreen({ navigation }) {
 
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+<<<<<<< Updated upstream
       {showHistory ? (
         <StoricoParcheggio />
       ) : (
         <Button title={"Mostra Storico"} onPress={toggleHistory} />
       )}
+=======
+      <Button title={"storico"} onPress={() => router.push("/localizzazione/storico-parcheggi")} />
+      <Button title={"statica"} onPress={() => router.push("/localizzazione/statistica-parcheggi")} />
+
+
+>>>>>>> Stashed changes
     </View>
   );
 }
