@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {TextInput, Text, StyleSheet, View, TouchableOpacity, Button} from "react-native";
-import {Dropdown, styles} from "@/app/flusso-pagamento/Components/ListaTarghe";
+import {TextInput, Text, StyleSheet, View, TouchableOpacity, Button, SafeAreaView, ImageBackground} from "react-native";
+import {Dropdown} from "@/app/flusso-pagamento/Components/ListaTarghe";
 import {router} from "expo-router";
 import getTarga from "@/app/flusso-pagamento/Query/Query_TargheUtente";
+// @ts-ignore
+import backgroundImage from './assets/BG_car.jpg';
+import Steps from "@/app/flusso-pagamento/Components/Steps";
 
 
 const useTarghe = (id_utente) => {
@@ -26,48 +29,84 @@ const FirstPage = () => {
     const {loading, targhe} = useTarghe(1)
 
     return (
-        <View style={styless.container}>
+        <SafeAreaView style={styles.container}>
+            <ImageBackground source={backgroundImage} resizeMode="cover" style={{width: '100%', height: '100%'}}>
+                <Steps/>
 
-            <Text style={styless.label}>Seleziona la targa dell'auto parcheggiata: </Text>
-            <Dropdown options={targhe} onSelect={handleSelect}/>
+                <View style={styles.section}>
+                    <Text style={styles.label}>Seleziona la targa dell'auto parcheggiata: </Text>
+                    <Dropdown options={targhe} onSelect={handleSelect}/>
 
-            <Text style={[styless.label]}>Inserisci una nuova targa: </Text>
-            <TextInput style={styless.textArea} placeholder="AA 000 AA"/>
+                    <Text style={[styles.label]}>Inserisci una nuova targa: </Text>
+                    <TextInput style={styles.textArea} placeholder="AA 000 AA"/>
 
-            <TouchableOpacity style={styless.nextBtn} onPress={() => router.push("/flusso-pagamento/Pagina-2")}>
-                <Text style={{color: "white"}}>Prosegui</Text>
-            </TouchableOpacity>
-        </View>
+                    <TouchableOpacity style={styles.nextButton}>
+                        <Button title={"Prosegui"} onPress={() => router.push("/flusso-pagamento/Pagina-2")}/>
+
+                    </TouchableOpacity>
+                </View>
+            </ImageBackground>
+        </SafeAreaView>
     )
 }
 export default FirstPage
-
-const styless = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-        top: 50,
+        flex: 1,
+    },
+    scrollView: {
+        paddingHorizontal: 20,
+    },
+    section: {
+        marginVertical: 10,
         alignItems: 'center',
-        gap: 16,
     },
     label: {
         fontSize: 18,
-        color: 'blue',
+        color: '#333',
         marginBottom: 10,
         fontWeight: "bold",
     },
     textArea: {
-        width: '40%',
+        width: '30%',
         height: 50,
-        borderColor: '#ccc',
+        borderColor: '#0000fc',
         borderWidth: 1,
-        borderRadius: 5,
+        borderRadius: 10,
         paddingHorizontal: 10,
         paddingVertical: 5,
         backgroundColor: '#f0f0f0',
     },
-    nextBtn: {
-        top: 100,
-        padding: 12,
-        backgroundColor: 'blue', //#155e85
-        borderRadius: 6,
-    }
-})
+    resultBox: {
+        width: '30%',
+        height: 50,
+        borderColor: '#0000fa',
+        borderWidth: 1,
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f0f0f0',
+    },
+    resultText: {
+        fontSize: 18,
+        color: '#002aff',
+        fontWeight: "bold",
+    },
+    linkText: {
+        fontSize: 18,
+        color: 'blue',
+        marginBottom: 10,
+    },
+    nextButton: {
+        paddingTop: 30,
+        width: 80,
+        height: 80,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 20,
+    },
+    nextButtonText: {
+        fontSize: 24,
+        color: 'white',
+    },
+});
