@@ -11,7 +11,7 @@ const BottomNavigation = () => (
     </View>
   );
 
-const App = () => {
+export const StatisticaParcheggi = () => {
 
   return (
     <>
@@ -33,7 +33,6 @@ const App = () => {
           <Text style={styles.buttonText}>STATISTICHE GENERALI</Text>
         </TouchableOpacity>
       </View>
-      <BottomNavigation />
     </View>
     </>
   );
@@ -110,4 +109,3 @@ const styles = StyleSheet.create({
 
 });
 
-export default App;

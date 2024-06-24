@@ -1,17 +1,6 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import BarBottomNavigation from "./Navigation/barra-navigazione";
-import { NavigationContainer } from "@react-navigation/native";
-import { Stack } from "expo-router";
+import * as React from "react";
+import AppNavigator from "./Navigation/AppNavigator";
 
-function App() {
-  return (
-    <>
-      <Stack.Screen options={{ headerShown: false }}  />
-      <NavigationContainer independent={true}>
-        <BarBottomNavigation />
-      </NavigationContainer>
-    </>
-  );
+export default function App() {
+  return <AppNavigator />;
 }
-export default App;

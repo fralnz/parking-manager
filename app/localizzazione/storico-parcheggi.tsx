@@ -21,7 +21,7 @@ const ParkingCard = ({ data, toggleFavorite }) => (
       <Text>{data.time}</Text>
     </View>
     <TouchableOpacity onPress={() => toggleFavorite(data.id)}>
-      <Icon name="bookmark" size={24} color={data.favorite ? "#FFD700" : "#000"} />
+      {/* <Icon name="bookmark" size={24} color={data.favorite ? "#FFD700" : "#000"} /> */}
     </TouchableOpacity>
   </View>
 );
