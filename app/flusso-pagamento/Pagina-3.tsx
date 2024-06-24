@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, CheckBox, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
 export default function App() {
     const [useRegisteredCard, setUseRegisteredCard] = useState(true);
@@ -24,7 +24,6 @@ export default function App() {
                 </View>
                 <View style={styles.formGroup}>
                     <View style={styles.checkboxContainer}>
-                        <CheckBox value={useRegisteredCard} onValueChange={setUseRegisteredCard} />
                         <Text style={styles.label}>Vuoi usare la carta registrata:</Text>
                     </View>
                 </View>

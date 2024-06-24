@@ -11,6 +11,9 @@ import {
 import {router} from "expo-router";
 // @ts-ignore
 import backgroundImage from './assets/BG_car.jpg';
+import Steps from "@/app/flusso-pagamento/Components/Steps";
+
+
 
 
 const ButtonPagamento = ({tariffa = 10}) => {
@@ -33,13 +36,7 @@ const ButtonPagamento = ({tariffa = 10}) => {
         <SafeAreaView style={styles.container}>
             <ImageBackground source={backgroundImage} resizeMode="cover" style={{width: '100%', height: '100%'}}>
                 <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
-                    <View style={styles.steps}>
-                        <Text style={styles.stepComplete}
-                              onPress={() => router.push("/flusso-pagamento/Pagina-1")}>✔</Text>
-                        <Text style={styles.stepCurrent}>○</Text>
-                        <Text style={styles.stepIncomplete}>○</Text>
-                        <Text style={styles.stepIncomplete}>○</Text>
-                    </View>
+                    <Steps onPress={() => router.push("/flusso-pagamento/Pagina-1")}/>
                     <View style={styles.section}>
                         <Text style={styles.label}>Impostare il tempo della sosta:</Text>
                         <TextInput
@@ -60,8 +57,7 @@ const ButtonPagamento = ({tariffa = 10}) => {
                     </View>
                     <View style={styles.section}>
                         <TouchableOpacity style={styles.nextButton}>
-                            <Button title={"Vai al pagamento"}
-                                    onPress={() => router.push("/flusso-pagamento/Pagina-3")}/>
+                            <Button title={"Vai al pagamento"} onPress={() => router.push("/flusso-pagamento/Pagina-3")}/>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
@@ -76,24 +72,6 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         paddingHorizontal: 20,
-    },
-    steps: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        marginVertical: 20,
-        cursor: "pointer",
-    },
-    stepComplete: {
-        color: 'blue',
-        fontSize: 24,
-    },
-    stepCurrent: {
-        color: 'blue',
-        fontSize: 24,
-    },
-    stepIncomplete: {
-        color: 'gray',
-        fontSize: 24,
     },
     section: {
         marginVertical: 10,

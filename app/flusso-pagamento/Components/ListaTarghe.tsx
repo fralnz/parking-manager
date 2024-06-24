@@ -41,16 +41,15 @@ const styles = StyleSheet.create({
 
     dropdownButton: {
         padding: 10,
-        backgroundColor: '#f0f0f0',
+        backgroundColor: '#89b2a8',
         borderRadius: 5,
         alignItems: 'center',
     },
     dropdownButtonText: {
-        fontSize: 22,
+        fontSize: 18,
         color: 'black',
-        borderColor: 'black',
-        borderWidth: 1,
-        padding: 8,
+        // borderColor: 'black',
+        padding: 3,
         borderRadius: 5
 
     },
