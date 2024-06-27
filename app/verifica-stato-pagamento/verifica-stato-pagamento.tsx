@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {SafeAreaView, View, Text, StyleSheet, Dimensions} from "react-native";
-import { createClient } from "@supabase/supabase-js";
 
-import Sign from './pages/sign/Sign';
+import Sign from './pages/Sign';
+import Segnalazioni from "./pages/segnalazioni";
+import Header from "./components/header";
 
 /* 
 const supabaseUrl = "https://eucgcytepwjzmnlgpuqz.supabase.co";
@@ -12,15 +13,18 @@ const supabase = createClient(supabaseUrl, supabaseKey); */
 
 const VerificaPagamento = () => {
 
-  const [matricola, matricola_set] = useState(null);
+  const [matricola, matricola_set] = useState("");
 
   const UpdateMatricola = (matricola: string)=>{
-    
+    matricola_set(matricola);
   }
 
   return (
     <SafeAreaView style={styles.body}>
-      <Sign/>
+      {
+        matricola? <Segnalazioni/> : <Sign UpdateMatricola={UpdateMatricola}/>
+      }
+      
     </SafeAreaView>
   );
 };
